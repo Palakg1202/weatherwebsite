@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modern Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- Preload the background images to avoid delay -->
+  <link rel="preload" href="images/clear.jpg" as="image" />
+  <link rel="preload" href="images/rain.jpg" as="image" />
+  <link rel="preload" href="images/stormy.jpg" as="image" />
+  <link rel="preload" href="images/clouds.jpg" as="image" />
+  <link rel="preload" href="images/foggy.jpg" as="image" />
+  <link rel="preload" href="images/snow.jpg" as="image" />
+  
+</head>
+<body>
+  <div id="app">
+    <!-- Search Section -->
+    <header class="search-header">
+      <input
+        type="text"
+        id="city-input"
+        aria-label="City search input"
+        placeholder="Search city"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <ul id="suggestions" class="suggestions" role="listbox" aria-live="polite"></ul>
+    </header>
+
+    <!-- Main Weather Display -->
+    <main class="weather-main" role="main" aria-live="polite" aria-atomic="true">
+      <section class="current-weather">
+        <div class="weather-icon">
+          <img src="images/sun.jpg" alt="Weather icon" id="weather-icon" />
+        </div>
+        <div class="temperature-section">
+          <div class="temperature" id="temperature">--°</div>
+          <button id="unit-toggle" aria-label="Toggle temperature unit" aria-pressed="true">°C</button>
+        </div>
+        <div class="condition" id="condition">--</div>
+        <div class="location" id="location">--</div>
+      </section>
+
+      <!-- Extra Weather Details -->
+      <section class="extra-details" aria-label="Extra weather details">
+        <div class="detail-item">
+          <img src="images/thermometer.jpg" alt="" aria-hidden="true" />
+          <div>
+            <span id="feels-like">--</span>°
+            <small>Feels Like</small>
+          </div>
+        </div>
+        <div class="detail-item">
+          <img src="images/humidity.jpg" alt="" aria-hidden="true" />
+          <div>
+            <span id="humidity">--</span>%
+            <small>Humidity</small>
+          </div>
+        </div>
+        <div class="detail-item">
+          <img src="images/wind.jpg" alt="" aria-hidden="true" />
+          <div>
+            <span id="wind-speed">--</span>
+            <small>Wind</small>
+          </div>
+        </div>
+        <div class="detail-item">
+          <img src="images/sunrise.jpg" alt="" aria-hidden="true" />
+          <div>
+            <span id="sunrise">--</span>
+            <small>Sunrise</small>
+          </div>
+        </div>
+        <div class="detail-item">
+          <img src="images/sunset.jpg" alt="" aria-hidden="true" />
+          <div>
+            <span id="sunset">--</span>
+            <small>Sunset</small>
+          </div>
+        </div>
+        <div class="detail-item">
+          <img src="images/uv.jpg" alt="" aria-hidden="true" />
+          <div>
+            <span id="uv-index">--</span>
+            <small>UV Index</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hourly Forecast -->
+      <section aria-label="Hourly forecast" class="hourly-forecast" id="hourly-forecast">
+        <!-- JS injects hourly forecast cards here -->
+      </section>
+
+      <!-- 7-day Forecast -->
+      <section aria-label="7-day forecast" class="daily-forecast" id="daily-forecast">
+        <!-- JS injects daily forecast cards here -->
+      </section>
+    </main>
+
+    <!-- Animated Background Layers -->
+    <div id="background-layer">
+      <img src="images/clear.jpg" alt="clear weather background" class="bg-image" id="bg-image" />
+      <!-- Weather weather animation containers -->
+      <div class="weather-animation" id="animation-container" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
+
